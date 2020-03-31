@@ -63,7 +63,6 @@ class TestBoek {
     /**
      * -------------------- ISBN IS EEN STRING-OBJECT --------------------
      **/
-    //TODO
     @Test
     void getISBN() {
         //getISBN: String-object is NIET null
@@ -73,7 +72,7 @@ class TestBoek {
         assertNull(isbnNull);
 
         //getISBN: isbn is geen String-object
-        // TODO kan niet voorkomen, Boek boek = new Boek("string", 245); zal niet compileren
+        //kan niet voorkomen, Boek boek = new Boek("string", 245); zal niet compileren
 
     }
     //TODO
