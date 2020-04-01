@@ -174,6 +174,9 @@ class TestBoek {
         String toStringNull = "Boek [ISBN=null, auteurs=[]]Medium [titel=null, reeks=null]";
         assertEquals(toStringNull, bNull.toString());
         Assertions.assertNotNull(bNull.toString());
+        //NullPointerException
+        Boek b = null;
+        Assertions.assertThrows(NullPointerException.class, () -> b.toString());
     }
 
     @Test
