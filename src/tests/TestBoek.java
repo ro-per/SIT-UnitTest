@@ -207,8 +207,8 @@ class TestBoek {
         //equals: objecten zijn van een ander soort
         Assertions.assertFalse(b1.equals(a1));
         //NullPointerException
-        Boek b1 = null;
-        Boek b2 = null;
-        Assertions.assertThrows(NullPointerException.class, () -> b1.equals(b2));
+        Boek b8 = null;
+        Boek b9 = null;
+        Assertions.assertThrows(NullPointerException.class, () -> b8.equals(b9));
     }
 }
