@@ -58,9 +58,6 @@ class TestBoek {
     Boek b7 = new Boek(titel7, isbn7); //REEKSLOOS
 
     /*  REEKS 3 */
-    Reeks reeksNull = null;
-    Auteur aNull = new Auteur("Eric", "FREEMAN");
-
     String titelNull = null;
     String isbnNull = null;
     Boek bNull = new Boek(titelNull, isbnNull); //REEKSLOOS
