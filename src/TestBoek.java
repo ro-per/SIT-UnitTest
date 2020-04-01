@@ -6,7 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestBoek {
-    /*  REEKS 1 */
+    /*  REEKS 1  */
     String reeksNaamMillenium = "De Millenium Trilogie";
     Reeks milleniumTrilogie = new Reeks(reeksNaamMillenium);
     Auteur auteurMillenium = new Auteur("Stieg", "LARSON");
