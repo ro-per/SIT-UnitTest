@@ -2,6 +2,7 @@ public class Auteur {
     private String voornaam;
     private String achternaam;
 
+
     public Auteur() {
         this.voornaam = "Voornaam";
         this.achternaam = "Achternaam";
