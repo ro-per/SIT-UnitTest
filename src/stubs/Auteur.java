@@ -1,3 +1,5 @@
+package stubs;
+
 public class Auteur {
     private String voornaam;
     private String achternaam;

@@ -1,3 +1,6 @@
+package media;
+
+import stubs.Reeks;
 
 public abstract class Medium {
     private String titel;
@@ -26,7 +29,7 @@ public abstract class Medium {
     }
 
     public String toString() {
-        return "Medium [titel=" + titel + ", reeks=" + reeks + "]";
+        return "media.Medium [titel=" + titel + ", reeks=" + reeks + "]";
     }
 
     public boolean heeftTitel(String t) {

@@ -1,3 +1,5 @@
+package stubs;
+
 public class Reeks {
     private String reeksNaam;
 

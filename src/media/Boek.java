@@ -1,3 +1,8 @@
+package media;
+
+import stubs.Auteur;
+import stubs.Reeks;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +39,7 @@ public class Boek extends Medium {
     }
 
     public String toString() {
-        return "Boek [ISBN=" + ISBN + ", auteurs=" + auteurs + "]" + super.toString();
+        return "media.Boek [ISBN=" + ISBN + ", auteurs=" + auteurs + "]" + super.toString();
     }
 
     public int hashCode() {

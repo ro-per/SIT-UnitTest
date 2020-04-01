@@ -1,5 +1,10 @@
+package tests;
+
+import media.Boek;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import stubs.Auteur;
+import stubs.Reeks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,19 +70,19 @@ class TestBoek {
     @Test
     void getISBN() {
         //getISBN: String-object is NIET null
-        assertEquals(isbn1, b1.getISBN());
+        Assertions.assertEquals(isbn1, b1.getISBN());
         //getISBN: String-object is null
         assertNull(isbnNull);
         //getISBN: isbn is geen String-object
-        //kan niet voorkomen, Boek boek = new Boek("string", 245); zal niet compileren
+        //kan niet voorkomen, media.Boek boek = new media.Boek("string", 245); zal niet compileren
     }
 
     /* -------------------- REEKS IS EEN REEKS-OBJECT --------------------*/
     @Test
     void testGetReeks() {
-        //boek.getReeks: Reeks-object is NIET nulll
-        assertEquals(milleniumTrilogie, b1.getReeks());
-        //boek.getReeks: Reeks-object is null
+        //boek.getReeks: stubs.Reeks-object is NIET nulll
+        Assertions.assertEquals(milleniumTrilogie, b1.getReeks());
+        //boek.getReeks: stubs.Reeks-object is null
         assertNull(bNull.getReeks());
     }
 
@@ -85,7 +90,7 @@ class TestBoek {
     void testSetReeks() {
         //setReeks: reeks-object
         b7.setReeks(programming);
-        assertEquals(programming, b7.getReeks());
+        Assertions.assertEquals(programming, b7.getReeks());
         //setReeks: null
         b7.setReeks(null);
         assertNull(b7.getReeks());
@@ -95,9 +100,9 @@ class TestBoek {
     @Test
     void testBehoortTotReeks() {
         //behoortTotReeks: boek behoort tot reeks
-        assertTrue(b1.behoortTotReeks(milleniumTrilogie));
+        Assertions.assertTrue(b1.behoortTotReeks(milleniumTrilogie));
         //behoortTotReeks: boek behoort tot andere reeks
-        assertFalse(b6.behoortTotReeks(milleniumTrilogie));
+        Assertions.assertFalse(b6.behoortTotReeks(milleniumTrilogie));
     }
 
     /*-------------------- AUTEUR IS EEN AUTEUR-OBJECT --------------------*/
@@ -107,10 +112,10 @@ class TestBoek {
         List<Auteur> testAuteurs1 = new ArrayList<>();
         testAuteurs1.add(auteurMillenium);
         b1.addAuteur(auteurMillenium);
-        assertEquals(testAuteurs1, b1.getAuteurs());
+        Assertions.assertEquals(testAuteurs1, b1.getAuteurs());
         //boek.getAuteurs: List-object is een lege lijst
         List<Auteur> testAuteurs2 = new ArrayList<>();
-        assertEquals(testAuteurs2, bNull.getAuteurs());
+        Assertions.assertEquals(testAuteurs2, bNull.getAuteurs());
     }
 
     @Test
@@ -121,42 +126,41 @@ class TestBoek {
         List<Auteur> auteursVerwacht = new ArrayList<>();
         auteursVerwacht.add(a1);
         auteursVerwacht.add(a2);
-        assertEquals(auteursVerwacht, b7.getAuteurs());
+        Assertions.assertEquals(auteursVerwacht, b7.getAuteurs());
         //boek.getAuteurs: List-object is een lege lijst
-        assertEquals(new ArrayList<>(), bNull.getAuteurs());
+        Assertions.assertEquals(new ArrayList<>(), bNull.getAuteurs());
         //boek.getAuteurs: List-object is een NIET lege lijst, auteur is null
         bNull.addAuteur(null);
         List<Auteur> verwachtNull = new ArrayList<>();
         verwachtNull.add(null);
-        assertEquals(verwachtNull, bNull.getAuteurs());
+        Assertions.assertEquals(verwachtNull, bNull.getAuteurs());
         //boek.getAuteurs.getAuteur: auteur aanwezig
         b1.addAuteur(auteurMillenium);
-        assertEquals(auteurMillenium, b1.getAuteurs().get(0));
+        Assertions.assertEquals(auteurMillenium, b1.getAuteurs().get(0));
     }
 
     @Test
     void heeftAuteur() {
         //boek.heeftAuteur: boek heeft een auteur
         b4.addAuteur(auteurDeZevenZussen);
-        assertTrue(b4.heeftAuteur(auteurDeZevenZussen));
+        Assertions.assertTrue(b4.heeftAuteur(auteurDeZevenZussen));
         //boek.heeftAuteur: boek heeft GEEN auteur
-        assertFalse(b5.heeftAuteur(auteurDeZevenZussen));
+        Assertions.assertFalse(b5.heeftAuteur(auteurDeZevenZussen));
     }
 
     /*-------------------- TITEL IS EEN STRING-OBJECT --------------------*/
     @Test
     void testHeeftTitel() {
         //boek.heeftTitel: boek heeft een dezelfde titel
-        assertTrue(b1.heeftTitel(titel1));
-        Assertions.assertNotNull(b1.getTitel());
+        Assertions.assertTrue(b1.heeftTitel(titel1));
         //boek.heeftTitel: boek heeft een andere titel
-        assertFalse(b1.heeftTitel(titel2));
+        Assertions.assertFalse(b1.heeftTitel(titel2));
     }
 
     @Test
     void testGetTitle() {
         //boek.getTitel: String-object is NIET NULL
-        assertEquals(titel6, b6.getTitel());
+        Assertions.assertEquals(titel6, b6.getTitel());
         Assertions.assertNotNull(b6.getTitel());
         //boek.getTitel: String-object is NULL
         assertNull(bNull.getTitel());
@@ -167,12 +171,12 @@ class TestBoek {
     @Test
     void testToString() {
         //attributen van boek zijn NIET null
-        String toString = "Boek [ISBN=" + isbn1 + ", auteurs=[" + auteurMillenium.toString() + "]]Medium [titel=" + titel1 + ", reeks=" + reeksNaamMillenium + "]";
+        String toString = "media.Boek [ISBN=" + isbn1 + ", auteurs=[" + auteurMillenium.toString() + "]]media.Medium [titel=" + titel1 + ", reeks=" + reeksNaamMillenium + "]";
         b1.addAuteur(auteurMillenium);
-        assertEquals(toString, b1.toString());
+        Assertions.assertEquals(toString, b1.toString());
         //attributen van boek zijn null
-        String toStringNull = "Boek [ISBN=null, auteurs=[]]Medium [titel=null, reeks=null]";
-        assertEquals(toStringNull, bNull.toString());
+        String toStringNull = "media.Boek [ISBN=null, auteurs=[]]media.Medium [titel=null, reeks=null]";
+        Assertions.assertEquals(toStringNull, bNull.toString());
         Assertions.assertNotNull(bNull.toString());
         //NullPointerException
         Boek b = null;
@@ -182,11 +186,11 @@ class TestBoek {
     @Test
     void testHashCode() {
         //hashCode: verschillend object, intern gelijk
-        assertEquals(b0.hashCode(), b1.hashCode());
+        Assertions.assertEquals(b0.hashCode(), b1.hashCode());
         Assertions.assertNotNull(b0.hashCode());
         Assertions.assertNotNull(b1.hashCode());
         //hashCode: zelfde object
-        assertEquals(b7.hashCode(), b7.hashCode());
+        Assertions.assertEquals(b7.hashCode(), b7.hashCode());
         //NullPointerException
         Boek b = null;
         Assertions.assertThrows(NullPointerException.class, () -> b.hashCode());
@@ -195,13 +199,13 @@ class TestBoek {
     @Test
     void testEquals() {
         //equals: verschillend object, intern gelijk
-        assertTrue(b0.equals(b1));
+        Assertions.assertTrue(b0.equals(b1));
         //equals: zelfde object
-        assertTrue(b1.equals(b1));
+        Assertions.assertTrue(b1.equals(b1));
         //equals: objecten van verschillend type
-        assertFalse(b1.equals(a2));
+        Assertions.assertFalse(b1.equals(a2));
         //equals: objecten zijn van een ander soort
-        assertFalse(b1.equals(a1));
+        Assertions.assertFalse(b1.equals(a1));
         //NullPointerException
         Boek b1 = null;
         Boek b2 = null;
