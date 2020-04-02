@@ -70,8 +70,6 @@ class TestBoek {
         Assertions.assertEquals(isbn1, b1.getISBN());
         //getISBN: String-object is null
         assertNull(isbnNull);
-        //getISBN: isbn is geen String-object
-        //kan niet voorkomen, media.Boek boek = new media.Boek("string", 245); zal niet compileren
     }
 
     /* -------------------- REEKS IS EEN REEKS-OBJECT --------------------*/
